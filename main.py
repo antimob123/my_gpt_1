@@ -4,7 +4,8 @@ from langchain.memory import ConversationBufferMemory
 from utils import get_chat_response
 import os
 
-openai_api_key = os.getenv("OPENAI_API_KEY")
+#openai_api_key = os.getenv("OPENAI_API_KEY")
+#openai_api_key = "sk-mUNn17ZfUM7sXWoy9KzuROtYAF9TPKQSqyLFNgJQv80Fbw6c"
 
 st.title("MY_ChatGPT")
 MyTokens = 100
