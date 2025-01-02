@@ -42,7 +42,7 @@ for message in st.session_state["messages"]:
 prompt = st.chat_input()
 if prompt:
     if not openai_api_key:
-        st.info("请输入你的OpenAI API Key")
+#        st.info("请输入你的OpenAI API Key")
         # st.stop()
     st.session_state["messages"].append({"role": "human", "content": prompt})
     st.chat_message("human").write(prompt)
