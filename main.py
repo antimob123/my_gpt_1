@@ -5,11 +5,12 @@ from utils import get_chat_response
 import os
 
 #openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key = "sk-mUNn17ZfUM7sXWoy9KzuROtYAF9TPKQSqyLFNgJQv80Fbw6c"
+
 
 st.title("MY_ChatGPT")
 MyTokens = 100
 with st.sidebar:
+    openai_api_key = st.text_input("请输入密钥:", type='password')
     MyTokens = st.text_input("请输入Tokens值:", type='default')
     # st.markdown("[获取OpenAI API key](https://platform.openai.com/account/api-keys)")
     temperature_1 = st.slider("请选择温度值 (0.0 到 2.0)", 0.0, 2.0, 1.0)  # 默认值为1.0
