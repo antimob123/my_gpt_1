@@ -44,7 +44,7 @@ prompt = st.chat_input()
 if prompt:
     if not openai_api_key:
         st.info("请输入你的OpenAI API Key")
-        # st.stop()
+        st.stop()
     st.session_state["messages"].append({"role": "human", "content": prompt})
     st.chat_message("human").write(prompt)
 
