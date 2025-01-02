@@ -4,13 +4,13 @@ from langchain.memory import ConversationBufferMemory
 from utils import get_chat_response
 import os
 
+#openai_api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = "sk-mUNn17ZfUM7sXWoy9KzuROtYAF9TPKQSqyLFNgJQv80Fbw6c"
 
 st.title("MY_ChatGPT")
 MyTokens = 100
 with st.sidebar:
-    openai_api_key = st.text_input("请输入密钥:", type='password')
     MyTokens = st.text_input("请输入Tokens值:", type='default')
-
     # st.markdown("[获取OpenAI API key](https://platform.openai.com/account/api-keys)")
     temperature_1 = st.slider("请选择温度值 (0.0 到 2.0)", 0.0, 2.0, 1.0)  # 默认值为1.0
     top_p_1 = st.slider("请选择 Top-p 值 (0.0 到 1.0)", 0.0, 1.0, 1.0)  # 默认值为 1.0
@@ -42,10 +42,10 @@ for message in st.session_state["messages"]:
 prompt = st.chat_input()
 if prompt:
     if not openai_api_key:
-     #st.info("请输入你的OpenAI API Key")
-     # st.stop()
-        st.session_state["messages"].append({"role": "human", "content": prompt})
-        st.chat_message("human").write(prompt)
+        st.info("请输入你的OpenAI API Key")
+        # st.stop()
+    st.session_state["messages"].append({"role": "human", "content": prompt})
+    st.chat_message("human").write(prompt)
 
     with st.spinner("AI正在思考中，请稍等..."):
         response = get_chat_response(prompt, st.session_state["memory"],
